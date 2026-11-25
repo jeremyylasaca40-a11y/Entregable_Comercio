@@ -1,0 +1,17 @@
+{
+  "name": "entregable-comercio",
+  "version": "1.0.0",
+  "description": "Backend Express y configuración base para el Dashboard de E-commerce (Fase 2)",
+  "type": "module",
+  "scripts": {
+    "dev:api": "node backend/index.js",
+    "start": "node backend/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "express": "^4.21.2"
+  }
+}
+
