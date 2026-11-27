@@ -14,6 +14,26 @@ export async function getJson(path, { signal } = {}) {
   return response.json();
 }
 
+export async function postJson(path, body, { signal } = {}) {
+  const response = await fetch(`/api${path}`, {
+    method: "POST",
+    signal,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok)
+    throw new Error(`El servicio respondió con un error (${response.status}).`);
+  if (!response.headers.get("content-type")?.includes("application/json")) {
+    throw new Error(
+      "No se recibió una respuesta válida del servicio de datos.",
+    );
+  }
+  return response.json();
+}
+
 export const integer = (value) =>
   new Intl.NumberFormat("es-PE", { maximumFractionDigits: 0 }).format(value);
 export const decimal = (value) =>
